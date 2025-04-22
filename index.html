@@ -66,6 +66,7 @@
                 transform: rotate(360deg);
             }
         }
+
     </style>
 </head>
 
@@ -137,6 +138,22 @@
         </div>
     </nav>
 
+    <script>
+        // Define reusable Tailwind class variables
+            const styles = {
+                sectionHeader: "text-3xl font-bold mb-12 text-center relative py-2 uppercase after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-blue-600 text-blue-600",
+                darkMode: "dark:text-blue-400 dark:after:bg-blue-400",
+                // Add more style variables as needed
+            };
+
+            // Function to apply styles to all section headers
+            document.addEventListener("DOMContentLoaded", function () {
+                const sectionHeaders = document.querySelectorAll(".section-header");
+                sectionHeaders.forEach(header => {
+                    header.className = `section-header ${styles.sectionHeader} ${styles.darkMode}`;
+                });
+            });
+    </script>
     <!-- Hero/About Section -->
     <section id="about" class="pt-32 pb-20 px-6 dark-mode-transition">
         <div class="container mx-auto section">
@@ -192,9 +209,9 @@
     </section>
 
     <!-- Education Section -->
-<section id="education" class="py-20 bg-gray-100 dark:bg-gray-800 px-6 dark-mode-transition">
+<section id="education" class="py-20  px-6 dark-mode-transition">
     <div class="container mx-auto section">
-        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-12 text-center">Education</h2>
+        <h2 class="section-header">Education</h2>
 
         <div
             class="flex flex-col md:flex-row items-center bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
@@ -217,9 +234,9 @@
     </div>
 </section>
 
-<section id="research" class="py-20 bg-white dark:bg-gray-900 px-6 dark-mode-transition">
+<section id="research" class="py-20 px-6 dark-mode-transition">
     <div class="container mx-auto section">
-        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-12 text-center">Scientific Research</h2>
+        <h2 class="section-header">Scientific Research</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Research Paper 1 -->
@@ -243,123 +260,246 @@
 </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6 dark-mode-transition">
-        <div class="container mx-auto section">
-            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-12 text-center">Skills</h2>
-    
+<section id="skills" class="py-20 px-6 transition-colors duration-300">
+    <div class="container mx-auto">
+        <h2 class="section-header">Skills</h2>
         <!-- Technical Skills -->
-        <div class="mb-16">
-            <div class="flex items-center mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
+        <div class="mb-20">
+            <div class="flex items-center mb-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-blue-500" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
                 <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Technical Skills</h3>
             </div>
-        
+
             <!-- Programming Languages -->
-            <div class="mb-6">
-                <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">Programming Languages</h4>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-blue-600 text-white rounded-md font-medium">Java</span>
-                    <span class="px-3 py-1 bg-yellow-500 text-black rounded-md font-medium">JavaScript</span>
-                    <span class="px-3 py-1 bg-blue-500 text-white rounded-md font-medium">Python</span>
-                    <span class="px-3 py-1 bg-gray-400 text-white rounded-md font-medium">C</span>
-                    <span class="px-3 py-1 bg-blue-700 text-white rounded-md font-medium">C++</span>
-                    <span class="px-3 py-1 bg-green-600 text-white rounded-md font-medium">C#</span>
-                    <span class="px-3 py-1 bg-orange-600 text-white rounded-md font-medium">HTML5</span>
-                    <span class="px-3 py-1 bg-blue-600 text-white rounded-md font-medium">CSS3</span>
-                    <span class="px-3 py-1 bg-purple-500 text-white rounded-md font-medium">PHP</span>
+            <div class="mb-16">
+                <h4 class="text-xl font-medium text-gray-700 dark:text-gray-300 mb-6 pl-2 border-l-4 border-blue-500">
+                    Programming Languages
+                </h4>
+                <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-6"
+                    id="programming-languages-container">
+                    <!-- Skills will be inserted here by JavaScript -->
                 </div>
             </div>
-        
+
             <!-- Frameworks & Libraries -->
-            <div class="mb-6">
-                <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">Frameworks & Libraries</h4>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-blue-400 text-white rounded-md font-medium">React</span>
-                    <span class="px-3 py-1 bg-green-600 text-white rounded-md font-medium">Node.js</span>
-                    <span class="px-3 py-1 bg-cyan-500 text-white rounded-md font-medium">Tailwind CSS</span>
-                    <span class="px-3 py-1 bg-purple-600 text-white rounded-md font-medium">Bootstrap</span>
+            <div class="mb-16">
+                <h4 class="text-xl font-medium text-gray-700 dark:text-gray-300 mb-6 pl-2 border-l-4 border-green-500">
+                    Frameworks & Libraries
+                </h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+                    id="frameworks-libraries-container">
+                    <!-- Skills will be inserted here by JavaScript -->
                 </div>
             </div>
-        
+
             <!-- Databases & Tools -->
-            <div class="mb-6">
-                <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">Databases & Tools</h4>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-green-500 text-white rounded-md font-medium">MongoDB</span>
-                    <span class="px-3 py-1 bg-blue-400 text-white rounded-md font-medium">MySQL</span>
-                    <span class="px-3 py-1 bg-red-600 text-white rounded-md font-medium">SQL Server</span>
-                    <span class="px-3 py-1 bg-purple-500 text-white rounded-md font-medium">phpMyAdmin</span>
-                    <span class="px-3 py-1 bg-green-600 text-white rounded-md font-medium">Studio3T</span>
-                    <span class="px-3 py-1 bg-red-500 text-white rounded-md font-medium">SSMS</span>
+            <div class="mb-16">
+                <h4 class="text-xl font-medium text-gray-700 dark:text-gray-300 mb-6 pl-2 border-l-4 border-purple-500">
+                    Databases & Tools
+                </h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+                    id="databases-tools-container">
+                    <!-- Skills will be inserted here by JavaScript -->
                 </div>
             </div>
-        
+
             <!-- Architecture & Deployment -->
-            <div class="mb-6">
-                <h4 class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">Architecture & Deployment</h4>
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-black text-white rounded-md font-medium">MERN Stack</span>
-                    <span class="px-3 py-1 bg-blue-600 text-white rounded-md font-medium">VPS</span>
-                    <span class="px-3 py-1 bg-orange-500 text-white rounded-md font-medium">cPanel</span>
-                    <span class="px-3 py-1 bg-orange-600 text-white rounded-md font-medium">XAMPP</span>
-                    <span class="px-3 py-1 bg-green-700 text-white rounded-md font-medium">OOP</span>
-                    <span class="px-3 py-1 bg-blue-500 text-white rounded-md font-medium">SPA</span>
-                    <span class="px-3 py-1 bg-blue-600 text-white rounded-md font-medium">Agile</span>
-                </div>
-            </div>
-        </div>
             <div>
-                <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-8">Soft Skills</h3>
-            
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Soft Skill Items -->
-                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Self-learning & Research</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Ability to independently research professional materials and
-                            continuously update knowledge.</p>
-                    </div>
-            
-                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Bilingual Presentation Skills</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Ability to deliver clear, structured presentations in both
-                            English and Vietnamese.</p>
-                    </div>
-            
-                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Effective Communication</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Professional communication skills with adaptability in various
-                            situations.</p>
-                    </div>
-            
-                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Team & Independent Work</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Capable of working effectively in teams and independently with
-                            excellent time management skills.</p>
-                    </div>
-            
-                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">Analytical & Problem-solving</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Ability to logically analyze issues and develop effective
-                            solutions.</p>
-                    </div>
+                <h4 class="text-xl font-medium text-gray-700 dark:text-gray-300 mb-6 pl-2 border-l-4 border-yellow-500">
+                    Architecture & Deployment
+                </h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
+                    id="architecture-deployment-container">
+                    <!-- Skills will be inserted here by JavaScript -->
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Soft Skills -->
+        <div>
+            <div class="flex items-center mb-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3 text-purple-500" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                </svg>
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Soft Skills</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="soft-skills-container">
+                <!-- Soft skills will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Define all skills data
+    const skillsData = {
+        technicalCategories: [
+            {
+                id: "programming-languages",
+                title: "Programming Languages",
+                borderColor: "border-blue-500",
+                skills: [
+                    { name: "Java", logo: "/img/logo-skill/java.svg" },
+                    { name: "JavaScript", logo: "/img/logo-skill/javascript.svg" },
+                    { name: "Python", logo: "/img/logo-skill/python.svg" },
+                    { name: "C#", logo: "/img/logo-skill/cshap.svg" },
+                    { name: "HTML5", logo: "/img/logo-skill/html5.svg" },
+                    { name: "CSS3", logo: "/img/logo-skill/css3.svg" }
+                ]
+            },
+            {
+                id: "frameworks-libraries",
+                title: "Frameworks & Libraries",
+                borderColor: "border-green-500",
+                skills: [
+                    { name: "React", logo: "/img/logo-skill/reactjs.svg" },
+                    { name: "Node.js", logo: "/img/logo-skill/nodejs.svg" },
+                    { name: "Tailwind CSS", logo: "/img/logo-skill/tailwind.svg" }
+                ]
+            },
+            {
+                id: "databases-tools",
+                title: "Databases & Tools",
+                borderColor: "border-purple-500",
+                skills: [
+                    { name: "MongoDB", logo: "/img/logo-skill/mongodb.svg" },
+                    { name: "MySQL", logo: "/img/logo-skill/mysql.svg" }
+                ]
+            },
+            {
+                id: "architecture-deployment",
+                title: "Architecture & Deployment",
+                borderColor: "border-yellow-500",
+                skills: [
+                    { name: "MERN", logo: "/img/logo-skill/mern.png" },
+                    { name: "VPS", logo: "/img/logo-skill/vps.svg" },
+                    { name: "cPanel", logo: "/img/logo-skill/cpanel.svg" },
+                    { name: "XAMPP", logo: "/img/logo-skill/xampp.svg" }
+                ]
+            }
+        ],
+        softSkills: [
+            {
+                title: "Self-learning & Research",
+                description: "Ability to independently research professional materials and continuously update knowledge.",
+                iconColor: "text-blue-500",
+                icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+            },
+            {
+                title: "Bilingual Presentation Skills",
+                description: "Ability to deliver clear, structured presentations in both English and Vietnamese.",
+                iconColor: "text-purple-500",
+                icon: "M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+            },
+            {
+                title: "Effective Communication",
+                description: "Professional communication skills with adaptability in various situations.",
+                iconColor: "text-green-500",
+                icon: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+            },
+            {
+                title: "Team & Independent Work",
+                description: "Capable of working effectively in teams and independently with excellent time management skills.",
+                iconColor: "text-yellow-500",
+                icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+            },
+            {
+                title: "Analytical & Problem-solving",
+                description: "Ability to logically analyze issues and develop effective solutions.",
+                iconColor: "text-red-500",
+                icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            }
+        ]
+    };
+
+    // Function to render technical skills
+    function renderTechnicalSkills() {
+        skillsData.technicalCategories.forEach(category => {
+            const container = document.getElementById(`${category.id}-container`);
+            if (!container) return;
+
+            category.skills.forEach(skill => {
+                const skillElement = document.createElement('div');
+                skillElement.className = 'rounded-xl p-3 flex flex-col items-center transform transition-transform duration-300 hover:-translate-y-1';
+                skillElement.innerHTML = `
+                    <img src="${skill.logo}" alt="${skill.name}" class="w-12 h-12 mb-4 transition-all duration-300" />
+                `;
+                container.appendChild(skillElement);
+            });
+        });
+    }
+
+    // Function to render soft skills
+    function renderSoftSkills() {
+        const container = document.getElementById('soft-skills-container');
+        if (!container) return;
+
+        skillsData.softSkills.forEach(skill => {
+            const skillElement = document.createElement('div');
+            skillElement.className = 'bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm flex items-start border-l-4 border-blue-500 transform transition-all duration-300 hover:translate-x-1 hover:shadow-md';
+            skillElement.innerHTML = `
+                <div class="mr-4 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 ${skill.iconColor}" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="${skill.icon}" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">${skill.title}</h4>
+                    <p class="text-gray-600 dark:text-gray-300">${skill.description}</p>
+                </div>
+            `;
+            container.appendChild(skillElement);
+        });
+    }
+
+    // Initialize everything when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+        renderTechnicalSkills();
+        renderSoftSkills();
+    });
+</script>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800 px-6 dark-mode-transition">
+    <section id="projects" class="py-20  px-6 dark-mode-transition">
         <div class="container mx-auto section">
-            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-12 text-center">Projects</h2>
-
+            <h2 class="section-header">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project Card 1 -->
                 <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden project-card transition-all duration-300">
-                    <img src="./img/shop_manh.png" alt="Game Services Shop" class="w-full h-48 object-cover">
+                    <img src="./img/project/uni_web.png" alt="Uni Center" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">English Center Website</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Advertising page, consulting connection, free English test for users
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full">MongoDB</span>
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full">Express</span>
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full">Nextjs</span>
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full">Node.js</span>
+                        </div>
+                        <a href="https://unienglishcenter.edu.vn"
+                            class="text-blue-600 dark:text-blue-400 font-semibold flex items-center hover:text-blue-700 dark:hover:text-blue-300">
+                            Go to: unienglishcenter.edu.vn <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden project-card transition-all duration-300">
+                    <img src="./img/project/shop_manh.png" alt="Game Services Shop" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Game Services Shop - Social Network</h3>
                         <p class="text-gray-600 dark:text-gray-300 mb-4">
@@ -382,6 +522,31 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden project-card transition-all duration-300">
+                    <img src="./img/project/shorten_url.png" alt="Shorten Url" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Shorten Url Website</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Helps users shorten long links into short, random, easy-to-remember and share links
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full">Microservice</span>
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full">Nextjs</span>
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full">Dot Net</span>
+                            <span
+                                class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 text-sm rounded-full">My Sql</span>
+                        </div>
+                        <a href="https://url.manhcr7.com"
+                            class="text-blue-600 dark:text-blue-400 font-semibold flex items-center hover:text-blue-700 dark:hover:text-blue-300">
+                            Go to: url.manhcr7.com <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -389,8 +554,7 @@
     <!-- Activities & Interests Section -->
     <section id="activities" class="py-20 px-6 dark-mode-transition">
         <div class="container mx-auto section">
-            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-12 text-center">Activities & Interests</h2>
-
+            <h2 class="section-header">Activities & Interests</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Activity 1 -->
                 <div class="relative overflow-hidden rounded-xl group">
@@ -438,44 +602,44 @@
     </section>
 
 <!-- Footer -->
-<footer id="footer" class="py-12 bg-gray-800 dark:bg-gray-900 text-white px-6 dark-mode-transition">
+<footer id="footer" class="py-12 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-6 dark-mode-transition">
     <div class="container mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <!-- Column 1: About -->
             <div>
-                <h3 class="text-2xl font-bold text-blue-400 mb-6">Duc-Manh Nguyen</h3>
-                <p class="text-gray-300 mb-4">Portfolio showcasing my journey, skills and projects
+                <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6">Duc-Manh Nguyen</h3>
+                <p class=" mb-4">Portfolio showcasing my journey, skills and projects
                     in web development.</p>
             </div>
 
             <!-- Column 2: Quick Links -->
             <div>
-                <h3 class="text-xl font-bold text-blue-400 mb-6">Quick Links</h3>
+                <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400 mb-6">Quick Links</h3>
                 <ul class="space-y-3">
                     <li>
                         <a href="#about"
-                            class="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center">
+                            class="hover:text-blue-400 transition-colors duration-300 flex items-center">
                             <i class="fas fa-user mr-3 text-blue-500"></i>
                             <span>About Me</span>
                         </a>
                     </li>
                     <li>
                         <a href="#projects"
-                            class="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center">
+                            class="hover:text-blue-400 transition-colors duration-300 flex items-center">
                             <i class="fas fa-code mr-3 text-blue-500"></i>
                             <span>Projects</span>
                         </a>
                     </li>
                     <li>
                         <a href="#skills"
-                            class="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center">
+                            class="hover:text-blue-400 transition-colors duration-300 flex items-center">
                             <i class="fas fa-laptop-code mr-3 text-blue-500"></i>
                             <span>Skills</span>
                         </a>
                     </li>
                     <li>
                         <a href="#contact"
-                            class="text-gray-300 hover:text-blue-400 transition-colors duration-300 flex items-center">
+                            class="hover:text-blue-400 transition-colors duration-300 flex items-center">
                             <i class="fas fa-envelope mr-3 text-blue-500"></i>
                             <span>Contact</span>
                         </a>
@@ -485,33 +649,33 @@
 
             <!-- Column 3: Contact Information -->
             <div>
-                <h3 class="text-xl font-bold text-blue-400 mb-6">Get In Touch</h3>
+                <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400 mb-6">Get In Touch</h3>
                 <ul class="space-y-4 grid grid-cols-2 gap-4">
                     <li class="flex items-center">
                         <div class="bg-blue-600 rounded-full p-2 mr-4">
                             <i class="fab fa-facebook-f text-white"></i>
                         </div>
                         <a href="https://www.facebook.com/zmanhcr7"
-                            class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Mạnh Cris</a>
+                            class="hover:text-blue-400 transition-colors duration-300">Mạnh Cris</a>
                     </li>
                     <li class="flex items-center">
                         <div class="bg-blue-600 rounded-full p-2 mr-4">
                             <i class="fab fa-github text-white"></i>
                         </div>
-                        <a href="https://github.com/manhreal" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">manhreal</a>
+                        <a href="https://github.com/manhreal" class="hover:text-blue-400 transition-colors duration-300">manhreal</a>
                     </li>
                     <li class="flex items-center">
                         <div class="bg-blue-600 rounded-full p-2 mr-4">
                             <i class="fas fa-phone text-white"></i>
                         </div>
-                        <a href="https://zalo.me/0397068724" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">0397.068.724</a>
+                        <a href="https://zalo.me/0397068724" class="hover:text-blue-400 transition-colors duration-300">0397.068.724</a>
                     </li>
                     <li class="flex items-center">
                         <div class="bg-blue-600 rounded-full p-2 mr-4">
                             <i class="fas fa-envelope text-white"></i>
                         </div>
                         <a href="mailto:ng.d.manh.37@gmail.com"
-                            class="text-gray-300 hover:text-blue-400 transition-colors duration-300">ng.d.manh.37@gmail.com</a>
+                            class="hover:text-blue-400 transition-colors duration-300">ng.d.manh.37@gmail.com</a>
                     </li>
                 </ul>
             </div>
@@ -519,9 +683,9 @@
 
         <div
             class="border-t border-gray-700 dark:border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-            <p class="text-gray-400 mb-4 md:mb-0">Thank you for viewing my profile <i class="fas fa-heart text-red-500"></i></p>
+            <p class="mb-4 md:mb-0">Thank you for viewing my profile <i class="fas fa-heart text-red-500"></i></p>
             <div class="flex space-x-4">
-                <p class="text-gray-400">&copy; 2025 Duc-Manh Nguyen. All rights reserved.</p>
+                <p>&copy; 2025 Duc-Manh Nguyen. All rights reserved.</p>
             </div>
         </div>
     </div>
